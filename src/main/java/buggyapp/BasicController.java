@@ -1,6 +1,7 @@
 package buggyapp;
 
 import java.time.LocalDateTime;
+import java.util.Random;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,14 @@ public class BasicController {
 		LocalDateTime now = LocalDateTime.now();
 		result = now.toString();
 		System.out.println(result);
+		return result;
+	}
+	
+	@RequestMapping("/random")
+	public @ResponseBody String random() {
+		String result = "";
+		Random r = new Random();		
+		result = Integer.toString(r.nextInt());
 		return result;
 	}
 
